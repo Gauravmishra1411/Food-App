@@ -13,11 +13,11 @@ const Header = () => {
   return (
     <div className='flex justify-evenly bg-gray-200 items-center hover:border-b-2' >
       <div >
-        <button>
-          <img id='logo' src='https://img.freepik.com/free-vector/pack-flat-catering-logo-templates_23-2148999601.jpg?t=st=1753251451~exp=1753255051~hmac=bc390bcf023c2bf8b30bce62a60c585c345777dd6ee316c0f92b4218204fa51a&w=1380' alt="logo" width={75} border-radius={50} className='rounded-full p-2 mr-4 fas fa-sync-alt animate-spin text-blue-600 text-2xl' onClick={() => window.location.reload()} />
+        <Link to={"/"}>
+          <img id='logo' src='https://img.freepik.com/free-vector/pack-flat-catering-logo-templates_23-2148999601.jpg?t=st=1753251451~exp=1753255051~hmac=bc390bcf023c2bf8b30bce62a60c585c345777dd6ee316c0f92b4218204fa51a&w=1380' alt="logo" width={75} border-radius={50} className='rounded-full p-2 mr-4 fas fa-sync-alt animate-spin text-blue-600 text-2xl' onClick={() => window.location.reload()}  />
 
 
-        </button>
+        </Link>
 
 
 
