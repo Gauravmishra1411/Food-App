@@ -35,46 +35,46 @@ function Body() {
   return (!allRestaurants) || allRestaurants.length === 0 ? (<Shimmer />) : (
     <>   
     
-      <div className="input-box">
+      <div className="flex my-3">
         <input
-
+          className="border-4 border-indigo-200 border-x-indigo-500 mx-12 border-y-violet-100 rounded-r-xl mr-8 w-60"
           type="text"
-          placeholder="Search"
+          placeholder="        Search" 
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
-        <button
+        <button 
+          className= "flex gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-lg shadow-md mr-6"
+
           onClick={() => {
             const data = filterData(searchText, allRestaurants);
             setFilteredRestaurants(data);
           }}
         >
-          Search
-        </button><FaSearch />
-
-        <button
-          className="refresh"
-          onClick={() => {
-            setFilteredRestaurants(allRestaurants); // reset to full list
-          }}
-        >
-          Refresh <FiRefreshCw />
+          Search<FaSearch />
         </button>
+ 
       </div>
 
-      <div className="card-container">
+      <div className="inline-grid gap-1px grid-cols-6 grid-rows-3  mx-6 shadow-lg  rounded-none bg-gradient-to-t	">
         {filteredRestaurants.map((restaurant) => (
           <div className="card" key={restaurant.info.id}>
-            <img
+            <img 
+            className="rounded-md bg-gradient-to-t"
               src={`https://media-assets.swiggy.com/swiggy/image/upload/${restaurant.info.cloudinaryImageId}`}
               alt={restaurant.info.name}
               width="200"
             />
-            <h2>{restaurant.info.name}</h2>
-            <p>{restaurant.info.cuisines.join(", ")}</p>
-            <h2>{restaurant.info.costForTwo}</h2>
-            <p>⭐ {restaurant.info.avgRating}</p>
-            <span><strong>DeliveryTime :</strong>  {restaurant.info.sla.deliveryTime}< FcAlarmClock /></span>
+           <div className="mr-10 text-center">
+             <h2 className="uppercase whitespace-nowrap font-bold">{restaurant.info.name}</h2>
+            <p className=" ">{restaurant.info.cuisines.join(", ")}</p>
+            <h2 className="font-semibold ">{restaurant.info.costForTwo}</h2>
+            <p className="whitespace-nowrap ">⭐ {restaurant.info.avgRating}</p>
+            <div className="flex justify-items-stretch"> 
+              <span className="flex justify-self-auto mr-2"><strong>DeliveryTime :</strong>  {restaurant.info.sla.deliveryTime}</span>
+            <FcAlarmClock />
+            </div>
+           </div>
           </div>
         ))}
       </div>
