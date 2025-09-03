@@ -10,16 +10,20 @@ import Contact from './Component/page/Contact';
 import RestroMenu from './Component/RestroMenu';
 import Profile from './Component/page/Profile'; 
 import  { lazy,Suspense } from 'react';
- 
+ import { Provider } from 'react-redux';
+ import Store from './Component/redux/Store';
 // dynamic import lazy(()=>import(location))
 // Layout Component
 const Imstamart=lazy(()=>import("./Component/page/Instamart"))
 const Layout=()=> {
   return (
     <>
+    <Provider store={Store}>
+
       <Header />
       <Outlet />
       <Footer />
+    </Provider>
     </>
   );
 }
